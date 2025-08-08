@@ -68,12 +68,12 @@ board = ["_"] * len(hangman_answer)
 #def hangman_picture():→コメントアウト
 wrong = 0
 stages = ["",
-        "___   ",
-        "|     ",
-        "|  |  ",
-        "|  O  ",
-        "| /|\ ",
-        "| / \ ",
+        r"___   ",
+        r"|     ",
+        r"|  |  ",
+        r"|  O  ",
+        r"| /|\ ",
+        r"| / \ ",
         ]
 # hangman_answerを１文字ずつ要素に分解したリスト
 rletters = list(hangman_answer)
