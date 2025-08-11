@@ -135,6 +135,50 @@ while wrong < len(stages) - 1:
     # 含まれるなら「正解！」と表示
     if guess in hangman_answer:
         print("正解")
+        """正解文字の位置を特定して、ボードを更新する
+if guess in hangman_answer:の中
+（print("正解")の行の後）に、forループを追加します。
+このループでは、enumerate()という新しい関数を使って、
+正解の単語（hangman_answer）の**
+「位置番号（インデックス）」と「文字」**を同時に取得します。
+ループの中で、取得した「文字」が
+プレイヤーの推測（guess）と同じかどうかをチェックします。
+もし同じであれば、その「位置番号」を使って、
+boardリストの同じ位置の_を、
+正解の文字（guess）に置き換えます。
+（例: board[index] = guess）
+"""
+        # forループを追加　enumerate()
+        
+        # enumerate()関数で正解の単語の位置番号と文字を取得し
+        for index, letter in enumerate(rletters):
+            # プレーヤの入力と一致するかを判定
+            if letter == guess:
+                # 一致するなら置き換える
+                board[index] = guess
+
+        """勝利したかどうかを判定する
+手順1のforループが終わった直後（まだifブロックの中です）に、
+もう一つif文を追加します。
+このif文で、boardリストの中に、
+まだ_が含まれていないかどうかをチェックします。
+もし_が一つもなければ、
+プレイヤーの勝利です！「あなたの勝ちです！」といったお祝いのメッセージを表示します。
+同時に、win変数をTrueに設定し、
+break文を使ってwhileループを強制的に終了させ、
+ゲームを終わらせます。
+"""
+        # if文で勝利条件を追加しbreakで終了
+        # 勝利条件はリストの中の_の数・・０になったら勝利
+        # if inで_がboardに含まれていない場合を考える
+        if "_" not in board:
+            # プレーヤの勝利「あなたの勝ちです！」を表示
+            print("あなたの勝ちです！")
+            # win変数をTrueに設定
+            win = True
+            # hangmanをbreak文で終了
+            break
+
     # 含まれない・・それ以外の場合は「不正解！」と表示
     else:
         print("不正解！")
