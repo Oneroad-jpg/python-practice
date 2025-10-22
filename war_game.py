@@ -127,3 +127,6 @@ class Game:
             # 引き分けた場合
             else:
                 print("引き分けです。")
+if __name__ == "__main__":
+    game = Game()
+    game.play_game()
